@@ -4,6 +4,7 @@ pipeline {
         stage('Example Build') {
             steps {
                 sh 'echo "harsh"'
+                sh 'ls -l'
             }
         }
     }
