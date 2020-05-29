@@ -9,7 +9,7 @@ pipeline {
         stage('Example Build') {
             steps {
                 sh 'docker build -t harsh1354/declarative:latest bulletin-board-app/'
-                sh 'echo "Image build complete"'
+                sh 'echo "Image build is complete"'
 				sh 'docker images'
             }
         }
