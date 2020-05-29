@@ -24,6 +24,8 @@ pipeline {
             steps {
 				withCredentials([usernamePassword(credentialsId: 'dockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 					sh "docker login -u $USERNAME -p $PASSWORD"
+					sh "docker push harsh1354/declarative:latest"
+					sh "docker push harsh1354/declarative:${env.BUILD_ID}"
 				}
             }
         }
