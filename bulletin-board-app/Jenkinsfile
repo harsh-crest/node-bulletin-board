@@ -6,10 +6,16 @@ pipeline {
 				checkout scm
 			}			
     }
-        stage('Example Build') {
+        stage('Build') {
             steps {
                 sh 'docker build -t harsh1354/declarative:latest bulletin-board-app/'
                 sh 'echo "Image build is complete"'
+            }
+        }
+        stage('Tag') {
+            steps {
+                sh 'docker tag -t harsh1354/declarative:latest harsh1354/declarative:${env.BUILD_ID}'
+                sh 'echo "Image tag is complete"'
 				sh 'docker images'
             }
         }
